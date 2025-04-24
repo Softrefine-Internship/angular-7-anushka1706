@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-
+import { AllFieldsService } from './all-fields.service';
+import { DynamicFormJson } from './fields-model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [AllFieldsService]
 })
 export class AppComponent {
-  title = 'angular-7';
+  allFormFields !: DynamicFormJson<string>[]
+  constructor(private fieldService: AllFieldsService) {
+    this.allFormFields = this.fieldService.getFields()
+    console.log(this.allFormFields)
+  }
 }

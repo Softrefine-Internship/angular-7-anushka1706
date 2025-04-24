@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="fields">
+    <div *ngFor="let _fields of allFormFields">
+      <app-app-fields [fields]="_fields" [form]="form"></app-app-fields>
+    </div>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!form.valid">Save</button>
+  </div>
+</form>
