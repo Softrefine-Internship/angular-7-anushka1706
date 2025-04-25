@@ -37,7 +37,6 @@ export class AllFieldsService {
             new Slider({
                 label: "height",
                 isVisible: true,
-                isRequired: false,
                 options: [160, 180, 170]
             }),
 
