@@ -19,8 +19,7 @@
       [id]="fields.label"
       [formControlName]="fields.label"
       [type]="fields.type"
-      (change)="onChangeCheckbox()"
-      [checked]="fields.value === true"
+      (change)="onCheckboxChange($event)"
         />
     </div>
     <div class="fields">

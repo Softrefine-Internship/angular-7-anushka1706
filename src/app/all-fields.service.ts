@@ -43,13 +43,19 @@ export class AllFieldsService {
             new Checkbox({
                 label: "graduated",
                 isVisible: true,
+                isRequired: true,
+                errorMessage: "Please select the option"
+            }),
+            new Checkbox({
+                label: "agree to policy",
+                isVisible: true,
                 isRequired: false,
                 errorMessage: "Please select the option"
             }),
             new TextType({
                 label: "new username",
                 isVisible: true,
-                isRequired: true,
+                isRequired: false,
                 errorMessage: "Please enter your username",
                 hint: "Hint : 8 characters with Upper case and special characters"
             }),

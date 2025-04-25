@@ -10,10 +10,14 @@ export class AppFieldsComponent {
   @Input() fields !: DynamicFormJson<any[]>
   @Input() form !: FormGroup
 
-  onChangeCheckbox() {
+  onCheckboxChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const isChecked = input.checked;
     const control = this.form.get(this.fields.label);
+  
     if (control) {
-      control.setValue(!control.value);
+      control.setValue(isChecked); 
     }
   }
+  
 }

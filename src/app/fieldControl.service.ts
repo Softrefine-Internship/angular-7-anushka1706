@@ -21,7 +21,7 @@ export class FieldControlService {
           ]);
           break;
         case 'checkbox':
-          group[_fields.label] = _fields.isRequired ? new FormControl(_fields.value ?? false, Validators.requiredTrue) : new FormControl(null, []);
+          group[_fields.label] = _fields.isRequired ? new FormControl(false, Validators.requiredTrue) : new FormControl(false, []);
           break;
         default:
           group[_fields.label] = _fields.isRequired ? new FormControl((_fields.value) ? _fields.value : null, Validators.required)
