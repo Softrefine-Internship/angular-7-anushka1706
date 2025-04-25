@@ -1,37 +1,63 @@
-<div [formGroup]="form">
-  <label>{{ fields.label }}</label>
+<div class="form-details" [formGroup]="form">
+  <label class="sub-heading" for="fields.label">{{ fields.label }}</label>
   <div [ngSwitch]="fields.type">
-    <input
-      *ngSwitchCase="'textbox'"
-      [formControlName]="fields.label"
-      [type]="fields.type"
-    />
-    <input
-      *ngSwitchCase="'number'"
-      [formControlName]="fields.label"
-      [type]="fields.type"
-    />
-    <input
-      *ngSwitchCase="'text'"
-      [formControlName]="fields.label"
-      [type]="fields.type"
-    />
-    <div *ngSwitchCase="'select'">
-      <select [formControlName]="fields.label">
-        <option *ngFor="let opt of fields.options" [value]="opt">
-          {{ opt }}
-        </option>
-      </select>
-    </div>
-    <div>
-        <input
-        type="range"
-        *ngSwitchCase="'range'"
+    <div class="fields">
+      <input
+        *ngSwitchCase="'textbox'"
         [formControlName]="fields.label"
-          />
-          <span>{{ form.get(fields.label)?.value + "cm" }}</span>
-    </div> 
+        [type]="fields.type"
+      />
+    </div>
+    <div class="fields" *ngSwitchCase="'textarea'">
+      <textarea
+        [formControlName]="fields.label"
+      ></textarea>
+    </div>
+    <div class="fields">
+      <input
+      *ngSwitchCase="'checkbox'"
+      [id]="fields.label"
+      [formControlName]="fields.label"
+      [type]="fields.type"
+      (change)="onChangeCheckbox()"
+        />
+    </div>
+    <div class="fields">
+      <input
+        *ngSwitchCase="'number'"
+        [formControlName]="fields.label"
+        [type]="fields.type"
+      />
+    </div>
+    <div class="fields">
+      <input
+        *ngSwitchCase="'text'"
+        [formControlName]="fields.label"
+        [type]="fields.type"
+      />
+    </div>
+    <div class="fields">
+      <div *ngSwitchCase="'select'">
+        <select [formControlName]="fields.label">
+          <option *ngFor="let opt of fields.options" [value]="opt">
+            {{ opt }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="fields">
+      <div *ngSwitchCase="'range'">
+        <input
+          type="range"
+          [formControlName]="fields.label"
+          [min]="fields.options[0]"
+          [max]="fields.options[1]"      />
+        <span *ngIf="form.get(fields.label)?.value !== null">{{ form.get(fields.label)?.value + "cm" }}</span>
+      </div>
+    </div>
+    <p class="error" *ngIf="!form.get(fields.label)?.value && form.get(fields.label)?.touched && fields.hint">
+      {{fields.hint}}
+    </p>
+    <p class="error" *ngIf="fields.isRequired && form.get(fields.label)?.invalid && form.get(fields.label)?.touched ">{{fields.errorMessage}}</p>
   </div>
-
-  <!-- <div class="errorMessage" *ngIf="!isRe">{{fields.label}} is required</div> -->
 </div>

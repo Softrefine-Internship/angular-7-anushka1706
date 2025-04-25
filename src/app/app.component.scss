@@ -1,0 +1,15 @@
+.form-container{
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.heading{
+    font-size: 2rem;
+    font-weight: 550;
+    color: rgb(79, 79, 141);
+}

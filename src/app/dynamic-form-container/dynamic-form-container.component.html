@@ -1,10 +1,13 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-div">
   <div class="fields">
     <div *ngFor="let _fields of allFormFields">
-      <app-app-fields [fields]="_fields" [form]="form"></app-app-fields>
+      <div *ngIf="_fields.isVisible">
+        <app-app-fields [fields]="_fields" [form]="form"></app-app-fields>
+      </div>
     </div>
   </div>
-  <div>
-    <button type="submit" [disabled]="!form.valid">Save</button>
+  <div class="btn-group">
+    <button class="submit-btn" type="submit" [disabled]="!form.valid">Save</button>
+    <button class="reset-btn" (click)="onReset()">Reset</button>
   </div>
 </form>

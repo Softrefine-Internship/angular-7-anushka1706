@@ -1,0 +1,37 @@
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: rgb(232, 231, 231);
+  overflow: hidden;
+  height: 100%;
+}
+.form-div {
+  padding: 1rem;
+  width: 50rem;
+}
+.submit-btn,
+.reset-btn {
+  padding: 1rem 2rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.submit-btn {
+  background-color: rgb(94, 176, 94);
+}
+.reset-btn {
+  background-color: rgb(228, 100, 100);
+}
+.btn-group{
+    display: flex;
+    justify-content: space-between;
+    gap:2rem;
+    margin-top: 2rem;
+}

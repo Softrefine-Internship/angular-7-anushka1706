@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { FieldControlService } from '../fieldControl.service';
 import { DynamicFormJson } from '../fields-model';
-import { AppFieldsComponent } from "./app-fields/app-fields.component";
 @Component({
   selector: 'app-dynamic-form-container',
   templateUrl: './dynamic-form-container.component.html',
@@ -10,14 +9,20 @@ import { AppFieldsComponent } from "./app-fields/app-fields.component";
   providers: [FieldControlService],
 })
 export class DynamicFormContainerComponent implements OnInit {
-  @Input() allFormFields!: DynamicFormJson<string>[];
+  @Input() allFormFields!: DynamicFormJson<any>[];
   form!: FormGroup;
+
   constructor(private formGroup: FieldControlService) { }
+
   ngOnInit() {
     this.form = this.formGroup.toFormGroup(this.allFormFields)
-    console.log(this.form)
   }
-  onSubmit(){
-    console.log(this.form)
+
+  onSubmit() {
+    console.log(this.form.value)
+  }
+
+  onReset() {
+    this.form.reset()
   }
 }

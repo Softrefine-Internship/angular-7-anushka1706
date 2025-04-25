@@ -7,6 +7,13 @@ import { DynamicFormJson } from 'src/app/fields-model';
   styleUrls: ['./app-fields.component.scss']
 })
 export class AppFieldsComponent {
-  @Input() fields !: any
+  @Input() fields !: DynamicFormJson<any[]>
   @Input() form !: FormGroup
+  
+  onChangeCheckbox() {
+    const control = this.form.get(this.fields.label);
+    if (control) {
+      control.setValue(!control.value);
+    }
+  }
 }

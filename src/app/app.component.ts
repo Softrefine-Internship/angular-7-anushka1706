@@ -8,7 +8,8 @@ import { DynamicFormJson } from './fields-model';
   providers: [AllFieldsService]
 })
 export class AppComponent {
-  allFormFields !: DynamicFormJson<string>[]
+  allFormFields !: DynamicFormJson<any[]>[]
+  
   constructor(private fieldService: AllFieldsService) {
     this.allFormFields = this.fieldService.getFields()
     console.log(this.allFormFields)
