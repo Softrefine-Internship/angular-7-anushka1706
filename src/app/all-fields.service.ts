@@ -54,7 +54,7 @@ export class AllFieldsService {
                 hint: "Hint : 8 characters with Upper case and special characters"
             }),
             new Textarea({
-                label: "your feedback",
+                label: "feedback",
                 isVisible: true
             }),
         ];
