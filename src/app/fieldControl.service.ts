@@ -20,20 +20,9 @@ export class FieldControlService {
             Validators.maxLength(12),
           ]);
           break;
-        case 'checkbox':
-          group[_fields.label] = new FormControl(_fields.value ?? false, validators);
-          break;
-        case 'dropdown':
-          group[_fields.label] = new FormControl(_fields.value ?? (_fields.options[0] || null), validators);
-          break;
-        case 'textarea':
-          group[_fields.label] = new FormControl(_fields.value ?? '', [
-            ...validators,
-            Validators.maxLength(500),
-          ]);
-          break;
         default:
-          group[_fields.label] = new FormControl(_fields.value ?? null, validators);
+          group[_fields.label] = _fields.isRequired ? new FormControl((_fields.value) ? _fields.value : null, Validators.required)
+          : new FormControl((_fields.value) ? _fields.value : null);
       }
     });
 
