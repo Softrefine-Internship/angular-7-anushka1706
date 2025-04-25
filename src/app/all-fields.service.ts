@@ -43,7 +43,8 @@ export class AllFieldsService {
             new Checkbox({
                 label: "graduated",
                 isVisible: true,
-                value:false
+                isRequired: false,
+                errorMessage: "Please select the option"
             }),
             new TextType({
                 label: "new username",

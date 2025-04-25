@@ -20,6 +20,7 @@
       [formControlName]="fields.label"
       [type]="fields.type"
       (change)="onChangeCheckbox()"
+      [checked]="fields.value === true"
         />
     </div>
     <div class="fields">
@@ -55,7 +56,7 @@
         <span *ngIf="form.get(fields.label)?.value !== null">{{ form.get(fields.label)?.value + "cm" }}</span>
       </div>
     </div>
-    <p class="error" *ngIf="!form.get(fields.label)?.value && form.get(fields.label)?.touched && fields.hint">
+    <p class="error" *ngIf="(!form.get(fields.label)?.value || form.get(fields.label)?.value === false ) && form.get(fields.label)?.touched && fields.hint">
       {{fields.hint}}
     </p>
     <p class="error" *ngIf="fields.isRequired && form.get(fields.label)?.invalid && form.get(fields.label)?.touched ">{{fields.errorMessage}}</p>

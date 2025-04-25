@@ -9,7 +9,7 @@ import { DynamicFormJson } from 'src/app/fields-model';
 export class AppFieldsComponent {
   @Input() fields !: DynamicFormJson<any[]>
   @Input() form !: FormGroup
-  
+
   onChangeCheckbox() {
     const control = this.form.get(this.fields.label);
     if (control) {

@@ -16,13 +16,16 @@ export class FieldControlService {
         case 'number':
           group[_fields.label] = new FormControl(_fields.value ?? null, [
             ...validators,
-            Validators.minLength(12),
+            Validators.minLength(10),
             Validators.maxLength(12),
           ]);
           break;
+        case 'checkbox':
+          group[_fields.label] = _fields.isRequired ? new FormControl(_fields.value ?? false, Validators.requiredTrue) : new FormControl(null, []);
+          break;
         default:
           group[_fields.label] = _fields.isRequired ? new FormControl((_fields.value) ? _fields.value : null, Validators.required)
-          : new FormControl((_fields.value) ? _fields.value : null);
+            : new FormControl((_fields.value) ? _fields.value : null);
       }
     });
 
