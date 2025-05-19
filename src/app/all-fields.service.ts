@@ -61,7 +61,8 @@ export class AllFieldsService {
             }),
             new Textarea({
                 label: "feedback",
-                isVisible: false
+                isVisible: true,
+                isRequired: true
             }),
         ];
         return fields
